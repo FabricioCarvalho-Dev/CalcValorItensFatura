@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4facfe;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00c3ff;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #4facfe;
+            font-weight: bold;
+        }
+
+        /* botão de navegação no topo direito */
+        .header-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #00c3ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header-btn:hover {
+            background-color: #008ecc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Botão no cabeçalho -->
+    <a href="/percentual" class="header-btn">Calcular Percentual</a>
+
+    <h2>Calculadora de Valores</h2>
+    <form th:action="@{/calcular}" method="post">
+        <textarea name="valores" rows="15" placeholder="Cole os valores aqui..."></textarea><br>
+        <button type="submit">Calcular</button>
+    </form>
+
+    <div th:if="${total != null}" class="total">
+        Total: <span th:text="${total}"></span>
+    </div>
+</div>
+</body>
+</html>
