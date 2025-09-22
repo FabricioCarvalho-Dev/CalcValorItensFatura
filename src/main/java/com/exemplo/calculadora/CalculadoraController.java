@@ -20,6 +20,7 @@ public class CalculadoraController {
         for (String linha : linhas) {
             linha = linha.trim().replace(",", ".");
             String[] partes = linha.split(" ");
+            
             try {
                 String ultimo = partes[partes.length - 1];
                 double valor = Double.parseDouble(ultimo);
