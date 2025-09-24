@@ -16,7 +16,6 @@ public class CalculadoraController {
     public String calcular(@RequestParam("valores") String valores, Model model) {
         String[] linhas = valores.split("\\r?\\n");
         double total = 0;
-
         for (String linha : linhas) {
             linha = linha.trim().replace(",", ".");
             String[] partes = linha.split(" ");
